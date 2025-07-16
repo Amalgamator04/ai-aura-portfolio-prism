@@ -143,36 +143,6 @@ export function DashboardSection() {
           </div>
         </div>
 
-        {/* Case Study */}
-        <Card className="glass-card">
-          <CardHeader>
-            <CardTitle className="text-2xl gradient-text">
-              Case Study: {caseStudy.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {caseStudy.timeline.map((item, index) => (
-                <div key={index} className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg">
-                  <div className="flex-shrink-0">
-                    <div className="w-8 h-8 bg-success rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">✓</span>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-primary">Day {item.day}:</span>
-                      <span className="text-xs bg-success/20 text-success px-2 py-1 rounded-md">
-                        Completed
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{item.task}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
