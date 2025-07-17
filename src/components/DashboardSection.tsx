@@ -3,6 +3,12 @@ import { ChevronLeft, ChevronRight, BarChart, PieChart, TrendingUp, Activity } f
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+// Import dashboard images
+import dashboardSales from "@/assets/dashboard-sales.jpg";
+import dashboardCustomer from "@/assets/dashboard-customer.jpg";
+import dashboardInventory from "@/assets/dashboard-inventory.jpg";
+import dashboardFinancial from "@/assets/dashboard-financial.jpg";
+
 export function DashboardSection() {
   const [currentDashboard, setCurrentDashboard] = useState(0);
 
@@ -11,28 +17,28 @@ export function DashboardSection() {
       title: "Sales Performance Dashboard",
       type: "Power BI",
       description: "Comprehensive sales analytics with regional performance tracking",
-      image: "/api/placeholder/600/400",
+      image: dashboardSales,
       insights: ["45% increase in Q4 sales", "North region leads with 32% growth", "Mobile sales up 67%"]
     },
     {
       title: "Customer Analytics Report",
       type: "Excel",
       description: "Customer segmentation and lifetime value analysis",
-      image: "/api/placeholder/600/400",
+      image: dashboardCustomer,
       insights: ["Customer retention up 23%", "Premium segment drives 60% revenue", "Churn rate reduced to 8%"]
     },
     {
       title: "Inventory Management System",
       type: "Streamlit",
       description: "Real-time inventory tracking with predictive restocking",
-      image: "/api/placeholder/600/400",
+      image: dashboardInventory,
       insights: ["Stock efficiency improved by 35%", "Automated 80% of reorder processes", "Reduced waste by 28%"]
     },
     {
       title: "Financial Performance Tracker",
       type: "Power BI",
       description: "Executive financial dashboard with KPI monitoring",
-      image: "/api/placeholder/600/400",
+      image: dashboardFinancial,
       insights: ["Profit margin increased 18%", "Operating costs down 12%", "ROI improved to 24%"]
     }
   ];
@@ -99,11 +105,16 @@ export function DashboardSection() {
                 </div>
               </div>
               
-              <div className="aspect-video bg-gradient-to-br from-muted/20 to-background flex items-center justify-center">
-                <div className="text-center p-8">
-                  <BarChart className="h-24 w-24 mx-auto mb-4 text-primary opacity-60" />
-                  <p className="text-lg font-medium mb-2">{dashboards[currentDashboard].title}</p>
-                  <p className="text-muted-foreground">{dashboards[currentDashboard].description}</p>
+              <div className="aspect-video relative overflow-hidden">
+                <img 
+                  src={dashboards[currentDashboard].image} 
+                  alt={dashboards[currentDashboard].title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-lg font-medium mb-2 text-white">{dashboards[currentDashboard].title}</p>
+                  <p className="text-sm text-white/80">{dashboards[currentDashboard].description}</p>
                 </div>
               </div>
 
